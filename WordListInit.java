@@ -4,11 +4,11 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class WordListInit {
-    public static void ListInit() {
+    public static HashMap<String,Integer> ListInit() {
 
+        HashMap <String,Integer> wordslist = new HashMap<>( );
         try (BufferedReader reader = new BufferedReader(new FileReader("input.txt"))) {
             String line;
-            HashMap <String,Integer> wordslist = new HashMap<>( );
             while ((line = reader.readLine()) != null) {
                 String[] words = line.split("\\s+");
                 for(int i =0;i<words.length;i++){
@@ -16,13 +16,15 @@ public class WordListInit {
                         wordslist.put(words[i], wordslist.get(words[i])+1);
                     } else{
                         wordslist.put(words[i],1);
+
                     }
                 }
             }
-
+            System.err.println("ad" + wordslist.get("pepper"));
 
         } catch (IOException e) {
             System.err.println("Ошибка при чтении файла: " + e.getMessage());
         }
+        return wordslist;
     }
 }
