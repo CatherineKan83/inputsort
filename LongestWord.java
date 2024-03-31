@@ -1,16 +1,24 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class LongestWord {
-    public static String findLongest(HashMap<String,Integer> a) {
+    public static void findLongest(HashMap<String,Integer> a) {
         int maxlength = 0;
-        String longestWord="";
+        List<String> longestWord=new ArrayList<>();
         for(String key: a.keySet()){
             if(key.length()>maxlength){
                 maxlength= key.length();
-                longestWord = key;
+                longestWord.removeAll(longestWord);
+                longestWord.add(key);
+            }else if(key.length()==maxlength){
+                longestWord.add(key);
             }
         }
-        return longestWord;
-        
+        if(longestWord.size()>1){
+            System.out.println("Longest words of the list: " + longestWord.toString().replace("[", "").replace("]", ""));
+        }else {     
+            System.out.println("The longest word of the list: " + longestWord.toString());
+        }
     }
 }
