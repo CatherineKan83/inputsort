@@ -16,13 +16,16 @@ public class WordListInit {
                         wordslist.put(words[i], wordslist.get(words[i])+1);
                     } else{
                         wordslist.put(words[i],1);
-
                     }
                 }
             }
+            wordslist.remove("");
+            
+
         } catch (IOException e) {
             System.err.println("Ошибка при чтении файла: " + e.getMessage());
         }
+
         return wordslist;
     }
 }
