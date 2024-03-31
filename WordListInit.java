@@ -20,8 +20,6 @@ public class WordListInit {
                     }
                 }
             }
-            System.err.println("ad" + wordslist.get("pepper"));
-
         } catch (IOException e) {
             System.err.println("Ошибка при чтении файла: " + e.getMessage());
         }
